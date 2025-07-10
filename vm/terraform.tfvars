@@ -1,0 +1,5 @@
+resource_group_name     = "terraform"
+resource_group_location = "EAST US"
+vm_size                 = "Standard_B1s"
+admin_username          = "azureuser"
+admin_password          = "Training@123"
