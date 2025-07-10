@@ -29,7 +29,7 @@ resource "azurerm_network_security_group" "training" {
 }
 
 resource "azurerm_network_interface_security_group_association" "training" {
-  count                     = var.vm_count
-  network_interface_id      = azurerm_network_interface.training[count.index].id
+  for_each                  = toset(var.vm_names)
+  network_interface_id      = azurerm_network_interface.training[each.value].id
   network_security_group_id = azurerm_network_security_group.training.id
 }

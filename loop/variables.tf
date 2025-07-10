@@ -41,8 +41,8 @@ sudo systemctl enable apache2
 SCRIPT
 }
 
-variable "vm_count" {
+variable "vm_names" {
   description = "Total no of vm's to be created"
-  type        = number
-  default     = 3
+  type        = list(string)
+  default     = ["vm1","vm2"]
 }

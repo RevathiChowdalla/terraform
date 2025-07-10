@@ -13,16 +13,16 @@ resource "azurerm_subnet" "training" {
 }
 
 resource "azurerm_public_ip" "training" {
-  count               = var.vm_count
-  name                = "terraform-vm-public-ip-${count.index + 1}"
+  for_each            = toset(var.vm_names)
+  name                = "terraform-vm-public-ip-${each.value}"
   resource_group_name = azurerm_resource_group.training.name
   location            = azurerm_resource_group.training.location
   allocation_method   = "Static"
 }
 
 resource "azurerm_network_interface" "training" {
-  count               = var.vm_count
-  name                = "terraform-nic-${count.index + 1}"
+  for_each            = toset(var.vm_names)
+  name                = "terraform-nic-${each.value}"
   location            = azurerm_resource_group.training.location
   resource_group_name = azurerm_resource_group.training.name
 
@@ -30,6 +30,6 @@ resource "azurerm_network_interface" "training" {
     name                          = "terraform"
     subnet_id                     = azurerm_subnet.training.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.training[count.index].id
+    public_ip_address_id          = azurerm_public_ip.training[each.value].id
   }
 }

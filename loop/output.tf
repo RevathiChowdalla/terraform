@@ -1,3 +1,3 @@
-output "vm-public-ip" {
-  value = azurerm_linux_virtual_machine.training[*].public_ip_address
+output "vm_public_ips" {
+  value = [for ip in azurerm_public_ip.training : ip.ip_address]
 }

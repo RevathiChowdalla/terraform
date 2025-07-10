@@ -1,0 +1,26 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "azurerm_linux_virtual_machine.training" [label="azurerm_linux_virtual_machine.training"];
+  "azurerm_network_interface.training" [label="azurerm_network_interface.training"];
+  "azurerm_network_interface_security_group_association.training" [label="azurerm_network_interface_security_group_association.training"];
+  "azurerm_network_security_group.training" [label="azurerm_network_security_group.training"];
+  "azurerm_public_ip.training" [label="azurerm_public_ip.training"];
+  "azurerm_resource_group.training" [label="azurerm_resource_group.training"];
+  "azurerm_storage_account.training" [label="azurerm_storage_account.training"];
+  "azurerm_subnet.training" [label="azurerm_subnet.training"];
+  "azurerm_virtual_network.training" [label="azurerm_virtual_network.training"];
+  "random_id.training" [label="random_id.training"];
+  "azurerm_linux_virtual_machine.training" -> "azurerm_network_interface.training";
+  "azurerm_linux_virtual_machine.training" -> "azurerm_storage_account.training";
+  "azurerm_network_interface.training" -> "azurerm_public_ip.training";
+  "azurerm_network_interface.training" -> "azurerm_subnet.training";
+  "azurerm_network_interface_security_group_association.training" -> "azurerm_network_interface.training";
+  "azurerm_network_interface_security_group_association.training" -> "azurerm_network_security_group.training";
+  "azurerm_network_security_group.training" -> "azurerm_resource_group.training";
+  "azurerm_public_ip.training" -> "azurerm_resource_group.training";
+  "azurerm_storage_account.training" -> "random_id.training";
+  "azurerm_subnet.training" -> "azurerm_virtual_network.training";
+  "azurerm_virtual_network.training" -> "azurerm_resource_group.training";
+  "random_id.training" -> "azurerm_resource_group.training";
+}
