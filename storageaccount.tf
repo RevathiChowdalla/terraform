@@ -1,7 +1,7 @@
 variable "create_storage_account" {
   description = "Set true if you want to create a storage account else set false"
   type        = bool
-  default     = false
+  default     = true
 }
 
 resource "azurerm_resource_group" "condition" {
