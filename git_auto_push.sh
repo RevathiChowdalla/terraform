@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /path/to/your/repo
+cd /home/palmeto/terraform
 
 # Add all changes
 git add .

@@ -1,4 +1,13 @@
+locals {
+  rg_name = {
+    dev     = "development"
+    test    = "testing"
+    prod    = "production"
+    default = "terraform"
+  }
+}
+
 resource "azurerm_resource_group" "training" {
-  name     = var.resource_group_name
+  name     = local.rg_name[terraform.workspace]
   location = var.resource_group_location
 }
