@@ -1,0 +1,17 @@
+[main 7fb7456] Automated commit on 2025-07-11 13:30:01
+ 16 files changed, 256 insertions(+), 2 deletions(-)
+ create mode 100644 git_auto_push.log
+ create mode 100644 modules/vm/network.tf
+ create mode 100644 modules/vm/nsg.tf
+ create mode 100644 modules/vm/output.tf
+ create mode 100644 modules/vm/provider.tf
+ create mode 100644 modules/vm/rg.tf
+ create mode 100644 modules/vm/storageaccount.tf
+ create mode 100644 modules/vm/variables.tf
+ create mode 100644 modules/vm/vm.tf
+ create mode 100644 publicmodule/main.tf
+ create mode 100644 publicmodule/provider.tf
+ create mode 100644 usemodules/main.tf
+ create mode 100644 usemodules/provider.tf
+To https://github.com/RevathiChowdalla/terraform.git
+   29445cd..7fb7456  main -> main
